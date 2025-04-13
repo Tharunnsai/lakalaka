@@ -2,6 +2,7 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
 import { Check, ExternalLink } from "lucide-react"
+import Script from "next/script"
 
 export default function SupportPlanPage() {
   const supportFeatures = [
@@ -16,6 +17,7 @@ export default function SupportPlanPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <Script src="https://gumroad.com/js/gumroad.js" strategy="lazyOnload" />
       <Header />
       <main className="flex-grow">
         <section className="bg-gradient-to-r from-gray-50 to-gray-100 py-12">
@@ -50,9 +52,16 @@ export default function SupportPlanPage() {
                     ))}
                   </ul>
 
-                  <Button className="w-full bg-purple-600 hover:bg-purple-700 py-6 text-lg">
-                    Subscribe Now <ExternalLink className="ml-2 h-5 w-5" />
-                  </Button>
+                  <div className="flex justify-center">
+                    <a 
+                      href="https://montaguecrest.gumroad.com/l/premium-support" 
+                      data-gumroad-overlay-checkout="true"
+                    >
+                      <Button className="bg-purple-600 text-white px-6 py-4 rounded-md hover:bg-purple-700 transition-colors">
+                        Subscribe
+                      </Button>
+                    </a>
+                  </div>
 
                   <p className="text-center text-gray-500 mt-4">Powered by Gumroad secure checkout</p>
                 </div>

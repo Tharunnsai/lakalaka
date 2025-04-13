@@ -1,4 +1,4 @@
-export type ServiceType = 'One-time' | 'Subscription';
+export type ServiceType = 'one time' | 'subscription';
 
 export interface Thumbnail {
   id: string;
@@ -18,12 +18,16 @@ export interface Service {
   id: string;
   name: string;
   slug: string;
+  tagline?: string;
   description: string;
+  packages_include?: string;
   price: number;
   type: ServiceType;
   gumroadLink: string;
+  redirectLink?: string;
   thumbnail: Thumbnail[];
   active: boolean;
+  number_of_purchases?: number;
 }
 
 export interface AirtableRecord {
@@ -32,12 +36,16 @@ export interface AirtableRecord {
   fields: {
     Name: string;
     Slug: string;
+    tagline?: string;
     Description: string;
+    packages_include?: string;
     Price: number;
     Type: ServiceType;
     'Gumroad Link': string;
+    'Redirect Link'?: string;
     Thumbnail: Thumbnail[];
     Active: boolean;
+    number_of_purchases?: number;
   };
 }
 

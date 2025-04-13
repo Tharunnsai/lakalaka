@@ -31,17 +31,39 @@ export async function getServices(): Promise<Service[]> {
 
     const data: AirtableResponse = await response.json();
 
-    return data.records.map((record) => ({
-      id: record.id,
-      name: record.fields.Name,
-      slug: record.fields.Slug,
-      description: record.fields.Description,
-      price: record.fields.Price,
-      type: record.fields.Type,
-      gumroadLink: record.fields["Gumroad Link"],
-      thumbnail: record.fields.Thumbnail,
-      active: record.fields.Active,
-    }));
+    return data.records.map((record) => {
+      // Find the Gumroad Link field regardless of whitespace
+      const gumroadLinkKey = Object.keys(record.fields).find(key => 
+        key.trim() === "Gumroad Link" || key === "Gumroad Link");
+      
+      const redirectLinkKey = Object.keys(record.fields).find(key => 
+        key.trim() === "Redirect Link" || key === "Redirect Link");
+      
+      // Safely access the fields with the found keys
+      const gumroadLink = gumroadLinkKey 
+        ? String(record.fields[gumroadLinkKey as keyof typeof record.fields] || "") 
+        : "";
+      
+      const redirectLink = redirectLinkKey 
+        ? String(record.fields[redirectLinkKey as keyof typeof record.fields] || "") 
+        : undefined;
+      
+      return {
+        id: record.id,
+        name: record.fields.Name,
+        slug: record.fields.Slug,
+        tagline: record.fields.tagline,
+        description: record.fields.Description,
+        packages_include: record.fields.packages_include,
+        price: record.fields.Price,
+        type: record.fields.Type,
+        gumroadLink,
+        redirectLink,
+        thumbnail: record.fields.Thumbnail,
+        active: record.fields.Active,
+        number_of_purchases: record.fields.number_of_purchases,
+      };
+    });
   } catch (error) {
     console.error("Error fetching services:", error);
     return [];
@@ -84,16 +106,38 @@ export async function getServiceBySlug(slug: string): Promise<Service | null> {
     }
 
     const record = data.records[0];
+    // console.log("record", record.fields);
+    
+    // Find the Gumroad Link field regardless of whitespace
+    const gumroadLinkKey = Object.keys(record.fields).find(key => 
+      key.trim() === "Gumroad Link" || key === "Gumroad Link");
+    
+    const redirectLinkKey = Object.keys(record.fields).find(key => 
+      key.trim() === "Redirect Link" || key === "Redirect Link");
+    
+    // Safely access the fields with the found keys
+    const gumroadLink = gumroadLinkKey 
+      ? String(record.fields[gumroadLinkKey as keyof typeof record.fields] || "") 
+      : "";
+    
+    const redirectLink = redirectLinkKey 
+      ? String(record.fields[redirectLinkKey as keyof typeof record.fields] || "") 
+      : undefined;
+    
     return {
       id: record.id,
       name: record.fields.Name,
       slug: record.fields.Slug,
+      tagline: record.fields.tagline,
       description: record.fields.Description,
+      packages_include: record.fields.packages_include,
       price: record.fields.Price,
       type: record.fields.Type,
-      gumroadLink: record.fields["Gumroad Link"],
+      gumroadLink,
+      redirectLink,
       thumbnail: record.fields.Thumbnail,
       active: record.fields.Active,
+      number_of_purchases: record.fields.number_of_purchases,
     };
   } catch (error) {
     console.error("Error fetching service by slug:", error);

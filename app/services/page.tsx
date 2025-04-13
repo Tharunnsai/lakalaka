@@ -3,6 +3,7 @@ import { getServices } from "@/lib/services";
 import { ServiceCard } from "@/components/ui/service-card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GumroadSuccessCheck from "@/components/GumroadSuccessCheck";
 
 async function ServicesGrid() {
   const services = await getServices();
@@ -59,6 +60,9 @@ function ServicesLoading() {
 export default function ServicesPage() {
   return (
     <div className="flex flex-col min-h-screen">
+      <Suspense fallback={null}>
+        <GumroadSuccessCheck />
+      </Suspense>
       <Header />
       <main className="flex-grow">
         <section className="bg-gradient-to-r from-gray-50 to-gray-100 py-12">

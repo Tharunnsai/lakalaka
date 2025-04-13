@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import type { Service } from "@/lib/types"
@@ -11,10 +12,12 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   return (
     <div className="bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100">
       <div className="h-48 bg-gray-200 relative overflow-hidden">
-        <img
+        <Image
           src={service.image || "/placeholder.svg?height=300&width=400"}
           alt={service.title}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+          fill
+          className="object-cover transition-transform duration-500 hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         {service.badge && (
           <div className="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium shadow-md">

@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -40,11 +41,13 @@ export default function Hero() {
             </div>
           </div>
           <div className="md:w-1/2">
-            <div className="relative">
-              <img
+            <div className="relative w-full h-[500px]">
+              <Image
                 src="/placeholder.svg?height=500&width=600"
                 alt="AI-powered business solutions"
                 className="rounded-lg shadow-xl"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
                 <p className="text-sm font-medium text-gray-900">Trusted by businesses worldwide</p>

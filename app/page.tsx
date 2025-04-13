@@ -5,6 +5,7 @@ import PricingCard from "@/components/PricingCard"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles, Zap, CheckCircle } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function HomePage() {
   const steps = [
@@ -88,11 +89,15 @@ export default function HomePage() {
               </div>
               <div className="md:w-1/2 relative">
                 <div className="absolute -top-10 -left-10 w-full h-full bg-gradient-to-br from-purple-200 to-indigo-200 rounded-2xl transform rotate-3"></div>
-                <img
-                  src="/placeholder.svg?height=400&width=500"
-                  alt="AI Services"
-                  className="relative rounded-2xl shadow-xl z-10"
-                />
+                <div className="relative rounded-2xl shadow-xl z-10 w-full h-[400px]">
+                  <Image
+                    src="/placeholder.svg?height=400&width=500"
+                    alt="AI Services"
+                    className="rounded-2xl"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
                 <div className="absolute -bottom-4 -right-4 bg-white p-4 rounded-lg shadow-lg z-20">
                   <div className="flex items-center">
                     <div className="bg-green-100 p-2 rounded-full mr-3">
@@ -291,11 +296,15 @@ export default function HomePage() {
                   </div>
                   <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
                   <div className="flex items-center">
-                    <img
-                      src={testimonial.image || "/placeholder.svg"}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full mr-4"
-                    />
+                    <div className="relative w-12 h-12 mr-4">
+                      <Image
+                        src={testimonial.image || "/placeholder.svg"}
+                        alt={testimonial.name}
+                        className="rounded-full"
+                        fill
+                        sizes="48px"
+                      />
+                    </div>
                     <div>
                       <p className="font-semibold">{testimonial.name}</p>
                       <p className="text-gray-500 text-sm">{testimonial.company}</p>
