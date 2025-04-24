@@ -89,18 +89,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-purple-400 transition-colors flex items-center">
+                <Link href="/privacy-policy" className="hover:text-purple-400 transition-colors flex items-center">
                   <span className="mr-2">→</span> Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-purple-400 transition-colors flex items-center">
-                  <span className="mr-2">→</span> Terms of Service
+                <Link href="/terms-and-conditions" className="hover:text-purple-400 transition-colors flex items-center">
+                  <span className="mr-2">→</span> Terms and Conditions
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-purple-400 transition-colors flex items-center">
-                  <span className="mr-2">→</span> Refund Policy
+                <Link href="/cancellation-and-refund" className="hover:text-purple-400 transition-colors flex items-center">
+                  <span className="mr-2">→</span> Cancellation & Refund
                 </Link>
               </li>
               <li>
@@ -119,21 +119,14 @@ export default function Footer() {
                 <Mail className="h-5 w-5 mr-3 text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium text-white">Email Us</p>
-                  <p>support@example.com</p>
+                  <p>montaguecrest@gmail.com</p>
                 </div>
               </li>
               <li className="flex items-start">
                 <Phone className="h-5 w-5 mr-3 text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium text-white">Call Us</p>
-                  <p>+1 (555) 123-4567</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <MapPin className="h-5 w-5 mr-3 text-purple-400 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-medium text-white">Location</p>
-                  <p>New York, NY</p>
+                  <p>+91 9347093159</p>
                 </div>
               </li>
             </ul>
@@ -142,6 +135,11 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 pt-8 text-center">
           <p>&copy; {new Date().getFullYear()} MontagueCrest. All rights reserved.</p>
+          <div className="mt-4 flex justify-center space-x-6 text-sm">
+            <Link href="/privacy-policy" className="hover:text-purple-400 transition-colors">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-purple-400 transition-colors">Terms and Conditions</Link>
+            <Link href="/cancellation-and-refund" className="hover:text-purple-400 transition-colors">Cancellation & Refund</Link>
+          </div>
         </div>
       </div>
     </footer>

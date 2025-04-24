@@ -53,10 +53,11 @@ export default function HomePage() {
                   <Sparkles className="inline-block w-4 h-4 mr-1" /> AI-Powered Solutions
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  AI Services for Your Business. <span className="gradient-text">One Click.</span> Done-for-You.
+                  Integrate AI into your Business with <span className="gradient-text">One 
+                  Click.</span>
                 </h1>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                  Affordable AI tools that deliver real results. No technical skills required.
+                  Our AI experts handle it all. Just sit back and scale.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/services">
@@ -78,37 +79,14 @@ export default function HomePage() {
                   </Link>
                 </div>
 
-                <div className="mt-8 flex items-center">
+                {/* <div className="mt-8 flex items-center">
                   <div className="flex -space-x-2">
                     {[1, 2, 3, 4].map((i) => (
                       <div key={i} className="w-8 h-8 rounded-full bg-gray-300 border-2 border-white" />
                     ))}
                   </div>
                   <p className="ml-3 text-sm text-gray-600">Trusted by 500+ businesses</p>
-                </div>
-              </div>
-              <div className="md:w-1/2 relative">
-                <div className="absolute -top-10 -left-10 w-full h-full bg-gradient-to-br from-purple-200 to-indigo-200 rounded-2xl transform rotate-3"></div>
-                <div className="relative rounded-2xl shadow-xl z-10 w-full h-[400px]">
-                  <Image
-                    src="/placeholder.svg?height=400&width=500"
-                    alt="AI Services"
-                    className="rounded-2xl"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-                <div className="absolute -bottom-4 -right-4 bg-white p-4 rounded-lg shadow-lg z-20">
-                  <div className="flex items-center">
-                    <div className="bg-green-100 p-2 rounded-full mr-3">
-                      <CheckCircle className="h-6 w-6 text-green-600" />
-                    </div>
-                    <div>
-                      <p className="font-medium">Setup in 48 hours</p>
-                      <p className="text-sm text-gray-500">No coding required</p>
-                    </div>
-                  </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -247,71 +225,65 @@ export default function HomePage() {
         </section>
 
         {/* Testimonials */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <div className="inline-block px-3 py-1 mb-4 rounded-full bg-purple-100 text-purple-800 font-medium text-sm">
-                Customer Stories
+                Business Success Stories
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">How businesses are using AI to boost their business</h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Hear from businesses that have transformed with our AI solutions
+                Discover how our AI solutions are transforming businesses
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  quote:
-                    "The chatbot implementation was seamless. Our customer satisfaction scores have increased by 25% since we started using it.",
-                  name: "Sarah Johnson",
-                  company: "TechSolutions Inc.",
-                  image: "/placeholder.svg?height=100&width=100",
-                },
-                {
-                  quote:
-                    "Our lead generation has improved dramatically. The AI bot qualifies leads better than our previous system.",
-                  name: "Michael Chen",
-                  company: "Growth Partners",
-                  image: "/placeholder.svg?height=100&width=100",
-                },
-                {
-                  quote:
-                    "The social media automation has saved us countless hours and our engagement has never been higher.",
-                  name: "Jessica Williams",
-                  company: "Brand Elevate",
-                  image: "/placeholder.svg?height=100&width=100",
-                },
-              ].map((testimonial, index) => (
-                <div
-                  key={index}
-                  className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
-                >
-                  <div className="flex mb-4">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <svg key={star} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                        <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
-                  <div className="flex items-center">
-                    <div className="relative w-12 h-12 mr-4">
-                      <Image
-                        src={testimonial.image || "/placeholder.svg"}
-                        alt={testimonial.name}
-                        className="rounded-full"
-                        fill
-                        sizes="48px"
-                      />
-                    </div>
-                    <div>
-                      <p className="font-semibold">{testimonial.name}</p>
-                      <p className="text-gray-500 text-sm">{testimonial.company}</p>
+            <div className="swiper-container">
+              <div className="swiper-wrapper">
+                {[
+                  {
+                    quote:
+                      "The chatbot implementation was seamless. Our customer satisfaction scores have increased by 25% since we started using it.",
+                    name: "Sarah Johnson",
+                    company: "TechSolutions Inc.",
+                    image: "/placeholder.svg?height=100&width=100",
+                  },
+                  {
+                    quote:
+                      "Our lead generation has improved dramatically. The AI bot qualifies leads better than our previous system.",
+                    name: "Michael Chen",
+                    company: "Growth Partners",
+                    image: "/placeholder.svg?height=100&width=100",
+                  },
+                  {
+                    quote:
+                      "The social media automation has saved us countless hours and our engagement has never been higher.",
+                    name: "Jessica Williams",
+                    company: "Brand Elevate",
+                    image: "/placeholder.svg?height=100&width=100",
+                  },
+                ].map((story, index) => (
+                  <div key={index} className="swiper-slide bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
+                    <p className="text-gray-700 mb-6 italic">"{story.quote}"</p>
+                    <div className="flex items-center">
+                      <div className="relative w-12 h-12 mr-4">
+                        <Image
+                          src={story.image || "/placeholder.svg"}
+                          alt={story.name}
+                          className="rounded-full"
+                          fill
+                          sizes="48px"
+                        />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-lg">{story.name}</p>
+                        <p className="text-gray-500 text-sm">{story.company}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              {/* Add Pagination */}
+              <div className="swiper-pagination"></div>
             </div>
           </div>
         </section>

@@ -239,7 +239,7 @@ async function ServiceContent({ slug }: { slug: string }) {
                 >
                     Buy Now <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
-                </Button>
+                  </Button>
 
                   <div className="bg-gray-50 p-4 rounded-xl mb-6">
                     <div className="flex items-center mb-2">
